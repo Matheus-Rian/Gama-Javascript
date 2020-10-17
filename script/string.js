@@ -26,12 +26,12 @@ const numeroSemDecimais = parseInt(numero)
 let array = [1, 2, 3, 4, 5];
 let arrayNovo = [];
 array.forEach(function(valor) {
-    arrayNovo.push(valor++)
+    arrayNovo.push(valor+1)
 })
 console.log(arrayNovo)
 
 const arrayNovoMap = array.map(function(valor){
-    return valor++;
+    return valor+1;
 })
 
 console.log(arrayNovoMap)
