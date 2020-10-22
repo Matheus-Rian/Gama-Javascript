@@ -135,8 +135,8 @@ let pessoa1 = new Pessoa('Gabriel', ['Lora', 'Logan', 'LeBeau'])
 console.log(pessoa1)
 pessoa.exibeGatos()
 
-function criaMensagemPorStatus 
 
-let message1 = status1 === 'sucess' ? 'Usuário criado com sucesso': (status1 === 'warning' ? 'Usuário cadastrado, mas tivemos algum problema':'Ocorreu um erro ao cadastrar' );
+
+let message1 = status1 === 'sucess' ? 'Usuário criado com sucesso': (status1 === 'warning' ? 'Usuário cadastrado, mas tivemos algum problema':'Ocorreu um erro ao cadastrar');
 
 console.log(message1);

@@ -1,0 +1,74 @@
+<!-- 1) Na tag form abaixo, complete o código para conter:
+
+1 input do tipo texto;
+1 input do tipo email;
+1 input do tipo senha.
+Todos os inputs devem possuir seus devidos placeholders. -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dale</title>
+</head>
+<body>
+    <form name="cadastro">
+        <input type="text" name="usuario" placeholder="Digite seu nome de usuário">
+        <input type="email" name="email" placeholder="seu@email.com">
+        <input type="password" name="senha" placeholder="Sua senha super secreta">
+        <button>enviar</button>
+    </form>
+    
+    <script>
+    const validaQuantidade = (input, minimo = 6) => {
+            const ehValido = input.value.trim().length >= minimo;
+    
+            if (!ehValido) {
+                return `O campo ${input.name} deve conter no mínimo ${minimo} caracteres`;
+            }
+        }
+    
+        const validaEmail = (input) => {
+            const regexp = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+            const ehValido = regexp.test(input.value);
+    
+            if (!ehValido) {
+                return `O campo ${input.name} não é válido`;
+            }
+        }
+    
+        const validacoes = {
+            text: [validaQuantidade],
+            email: [validaQuantidade, validaEmail],
+            password: [validaQuantidade]
+        };
+    
+        const validaFormulario = (inputs) => {
+            const aposValidacao = inputs.map(input => {
+            const funcoesDeValidacao = validacoes[input.type];
+            const validados = funcoesDeValidacao
+                .map(funcao => funcao(input))
+                .filter(value => value);
+    
+            return validados;
+            });
+    
+            return aposValidacao;
+        };
+    
+    
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const campos = [
+                cadastro.usuario,
+                cadastro.email,
+                cadastro.senha
+            ];
+            
+            const validados = validaFormulario(campos);
+            console.log(validados);
+        });
+    </script>
+</body>
+</html>

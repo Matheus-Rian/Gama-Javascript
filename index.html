@@ -1,0 +1,18 @@
+<form name="cadastro">
+    <input type="text" name="usuario" placeholder="Digite seu nome de usuário">
+    <input type="email" name="email" placeholder="seu@email.com">
+    <input type="password" name="senha" placeholder="Sua senha super secreta">
+    <button>
+        enviar
+    </button>
+</form>
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('Usuario', cadastro.usuario.value);
+        console.log('Email', cadastro.email.value);
+        console.log('Senha', cadastro.senha.value);
+    });
+</script>
